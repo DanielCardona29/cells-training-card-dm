@@ -1,0 +1,1 @@
+export { CellsTrainingCardDm } from './src/CellsTrainingCardDm.js';
