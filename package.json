@@ -11,11 +11,14 @@
     "!**/*.scss"
   ],
   "dependencies": {
-    "@bbva-web-components/bbva-foundations-styles": "^2.3.5",
     "@bbva-web-components/bbva-core-lit-helpers": "^1.0.4",
+    "@bbva-web-components/bbva-foundations-styles": "^2.3.5",
+    "@cells-components/bgadp-cards-v0": "^4.40.0",
     "lit-element": "^2.0.0"
   },
   "devDependencies": {
+    "@bbva-web-components/bbva-button-default": "^5.15.10",
+    "@bbva-web-components/cells-traing-tsec-dm": "git+https://github.com/DanielCardona29/cells-traing-tsec-dm.git#master",
     "@cells/cells-component-core": "^3.1.0"
   }
 }
