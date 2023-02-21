@@ -33,13 +33,15 @@
         <cells-training-card-dm></cells-training-card-dm>
         <cells-traing-tsec-dm></cells-traing-tsec-dm>
 
-        <bbva-button-default>Get Cards</bbva-button-default>
+        <bbva-button-default id="get-all-cards">Get Cards</bbva-button-default>
+        <bbva-button-default id="get-card-detail">Card detail</bbva-button-default>
 
         <script>
-      
+
           const cards = document.querySelector('cells-training-card-dm');
-      
-          const button = document.querySelector('bbva-button-default');
+
+          const button = document.querySelector('#get-all-cards');
+          const button2 = document.querySelector('#get-card-detail');
 
           const tsec = document.querySelector('cells-traing-tsec-dm');
 
@@ -57,9 +59,23 @@
             tsec.Login();
           });
 
-          tsec.addEventListener('login-tsec-success',() => {
+          tsec.addEventListener('login-tsec-success', () => {
             cards.getCards();
           });
+
+
+          cards.addEventListener('request-cards-success', (event) => {
+            console.log('request-cards-success', event)
+          });
+
+          cards.addEventListener('card-detail-succes', (event) => {
+            console.log('card-detail-succes', event)
+          })
+
+          button2.addEventListener('click', () => {
+            cards.gerCardDetail('1101');
+          });
+
 
         </script>
       </template>
