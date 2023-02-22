@@ -27,14 +27,15 @@
 </head>
 
 <body>
-  <bbva-core-demo-helper>
+  <bbva-core-demo-helper  events='["request-cards-success","card-detail-succes","login-tsec-success","card-transactions-succes"]'>
     <bbva-core-demo-case heading="Basic" description="Default specs">
       <template>
         <cells-training-card-dm></cells-training-card-dm>
         <cells-traing-tsec-dm></cells-traing-tsec-dm>
 
-        <bbva-button-default id="get-all-cards">Get Cards</bbva-button-default>
+        <bbva-button-default id="get-all-cards">Login</bbva-button-default>
         <bbva-button-default id="get-card-detail">Card detail</bbva-button-default>
+        <bbva-button-default id="get-card-transactions">Get Transactions</bbva-button-default>
 
         <script>
 
@@ -42,6 +43,7 @@
 
           const button = document.querySelector('#get-all-cards');
           const button2 = document.querySelector('#get-card-detail');
+          const button3 = document.querySelector('#get-card-transactions');
 
           const tsec = document.querySelector('cells-traing-tsec-dm');
 
@@ -59,23 +61,13 @@
             tsec.Login();
           });
 
-          tsec.addEventListener('login-tsec-success', () => {
-            cards.getCards();
-          });
-
-
-          cards.addEventListener('request-cards-success', (event) => {
-            console.log('request-cards-success', event)
-          });
-
-          cards.addEventListener('card-detail-succes', (event) => {
-            console.log('card-detail-succes', event)
-          })
-
           button2.addEventListener('click', () => {
             cards.gerCardDetail('1101');
           });
 
+          button3.addEventListener('click', () => {
+            cards.getTransactions('1101');
+          });
 
         </script>
       </template>
